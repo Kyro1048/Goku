@@ -1,0 +1,256 @@
+local Rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+local lplr = game.Players.LocalPlayer
+
+game.RunService.Stepped:Connect(
+        function()
+            if game:GetService("CoreGui").RobloxPromptGui.promptOverlay:FindFirstChild("ErrorPrompt") then
+            game:GetService("TeleportService"):Teleport(3552157537, LocalPlayer)
+        end
+    end
+) 
+
+local args = {[1] = workspace.FriendlyNPCs.help3}
+game:GetService("Players").LocalPlayer.Backpack.ServerTraits.ChatStart:FireServer(unpack(args))
+wait(.3)
+local args = {[1] = {[1] = "k"}}
+game:GetService("Players").LocalPlayer.Backpack.ServerTraits.ChatAdvance:FireServer(unpack(args))
+wait(.3)
+local args = {[1] = {[1] = "k"}}
+game:GetService("Players").LocalPlayer.Backpack.ServerTraits.ChatAdvance:FireServer(unpack(args))
+wait(.3)
+local args = {[1] = {[1] = "k"}}
+game:GetService("Players").LocalPlayer.Backpack.ServerTraits.ChatAdvance:FireServer(unpack(args))
+wait(.3)
+local args = {[1] = {[1] = "Ye"}}
+game:GetService("Players").LocalPlayer.Backpack.ServerTraits.ChatAdvance:FireServer(unpack(args))
+wait(.3)
+local args = {[1] = {[1] = "k"}}
+game:GetService("Players").LocalPlayer.Backpack.ServerTraits.ChatAdvance:FireServer(unpack(args))
+wait(1)
+
+if Android == true then
+    local Android =
+        coroutine.create(
+        function()
+            repeat
+                wait()
+                until Workspace.Live[lplr.name].Ki.Value <= Workspace.Live[lplr.name].Ki.MaxValue * .7
+                lplr.Backpack.ServerTraits.Transform:FireServer("g")
+                wait(.2)
+                lplr.Backpack.ServerTraits.Transform:FireServer("g")
+                wait(.2)
+                lplr.Backpack.ServerTraits.Transform:FireServer("g")
+                wait(.2)
+                lplr.Backpack.ServerTraits.Transform:FireServer("g")
+            end
+        )
+    coroutine.resume(Android)
+end
+
+if Android == false then
+    wait(.2)
+    lplr.Backpack.ServerTraits.Input:FireServer({"x"}, CFrame.new())
+    wait(3.6)
+    lplr.Backpack.ServerTraits.Transform:FireServer("h")
+    wait(1)
+    lplr.Backpack.ServerTraits.Input:FireServer({"xoff"}, CFrame.new())
+elseif Android == false and FreezeDouble == true then
+    Nountransform=function()
+        game:GetService('RunService').RenderStepped:connect(function()
+            lplr.Backpack.ServerTraits.Transform:FireServer("h")
+                wait(1) 
+                lplr.Character.HumanoidRootPart['SaiyanAuraWeak']:Remove()
+            end)
+        end
+    Nountransform()
+end
+
+if FreezeDouble == true then
+    game:GetService("Workspace").Live[lplr.name]:FindFirstChild("True"):Destroy()
+end
+
+if PowerChanger == true then
+    coroutine.resume(
+        coroutine.create(
+            function()
+                while true do wait()
+    	            if lplr.Character.LowerTorso:FindFirstChild('Ui3') and lplr.PlayerGui.HUD.Bottom.SideMenu.Output.Perc.Text ~= "100%" then
+                lplr.Backpack.ServerTraits.Input:FireServer({"increase"}, true)
+            end
+                wait(.2)
+                    if lplr.Character.Ki.Value <= lplr.Character.Ki.MaxValue * .09 then
+                        if lplr.PlayerGui.HUD.Bottom.SideMenu.Output.Perc.Text ~= 20 .. "%" then
+                    lplr.Backpack.ServerTraits.Input:FireServer({"decrease"}, true)
+                 end
+            end
+        end
+    end))
+end
+
+local AutoHit =
+    coroutine.create(
+        function()
+            game:GetService("RunService").RenderStepped:Connect(
+                function()
+                    if AutoPunch == true and game.Workspace.Live[lplr.name].Ki.Value < 36 then
+                        lplr.Backpack.ServerTraits.Input:FireServer({"m2"}, CFrame.new())
+                    end
+                end
+            )
+        end
+    )
+coroutine.resume(AutoHit)
+
+local promote =
+    coroutine.create(
+    function()
+        if Promote == true then
+            while wait(3) do
+                local A_1 = "Auto Heaven Made By Kyro1048 Message To Get Script"
+                local A_2 = "All"
+                local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+                Event:FireServer(A_1, A_2)
+            end
+        end
+    end
+)
+coroutine.resume(promote)
+
+local CframetoGoku = coroutine.create(function()
+    game:GetService('RunService').RenderStepped:connect(function()
+        while wait() do
+                Rootpart.CFrame = CFrame.new(2353.86, 96.57, -596.51)
+                wait(.3)
+                Rootpart.Anchorec = true
+            end        
+        end)
+    end)
+coroutine.resume(CframetoGoku)
+
+lplr.Backpack:WaitForChild("Dragon Throw")
+    lplr.Backpack["Dragon Throw"].Activator:WaitForChild("Flip")
+    wait()
+    if (lplr.Backpack:FindFirstChild("Dragon Throw")) then
+        repeat
+            wait()
+            lplr.Character:FindFirstChildOfClass("Humanoid"):EquipTool(lplr.Backpack["Dragon Throw"])
+        until lplr.Character:FindFirstChild("Dragon Throw")
+
+repeat
+    wait()
+        lplr.Character["Dragon Throw"]:Activate()
+    until lplr.Character.Ki.Value < lplr.Character.Ki.MaxValue
+end
+
+
+local GrabCheck =
+    coroutine.create(
+        function()
+            wait(.5)
+                if not game.Workspace.Live["Goku"]:FindFirstChild("Override") then
+            game.Players.LocalPlayer:Kick()
+        end
+    end
+)
+coroutine.resume(GrabCheck)
+
+repeat
+    wait()
+    lplr.Character["Dragon Throw"].Activator:FindFirstChild("Flip"):Destroy()
+until not lplr.Character["Dragon Throw"].Activator:FindFirstChild("Flip")
+
+local debuffs = {
+    "Look", 
+    "i", 
+    "xx", 
+    "Action", 
+    "SuperAction", 
+    "Attacking", 
+    "Using", 
+    "heavy", 
+    "hyper", 
+    "Hyper", 
+    "Tele", 
+    "tele", 
+    "Slow", 
+    "Killed", 
+    "KiBlasted",
+    "MoveStart", 
+    "Hyper", 
+    "Dodging", 
+    "KiBlasting", 
+    "BStun", 
+    "creator", 
+    "KnockBacked", 
+    "NotHardBack",
+    "Ball",
+    "Cyl",  
+    "Cut",
+}
+
+local function onCharacterAdded(character)
+    if (not character) then
+    return
+end
+
+character.ChildAdded:Connect(
+    function(child)
+        runService.RenderStepped:Wait()
+            if (table.find(debuffs, child.Name)) then
+                child:Destroy()
+            end
+        end
+    )
+end
+
+onCharacterAdded(lplr.Character)
+lplr.CharacterAdded:Connect(onCharacterAdded)
+
+if (lplr.Character) then
+    for i, v in next, lplr.Character:GetChildren() do
+        if (table.find(debuffs, v.Name)) then
+            runService.RenderStepped:Wait()
+            v:Destroy()
+        end
+    end
+end
+
+local GoGod =
+    coroutine.create(
+        function()
+            local God = true
+            while God == true do
+                wait()
+                if
+                    game.Workspace.Live[lplr.Name].Humanoid.Health <= lplr.Character.Humanoid.MaxHealth * .2 and
+                    game.Workspace.Live[lplr.Name].Ki.Value <= Workspace.Live[lplr.Name].Ki.MaxValue * .2
+                then
+                lplr.Backpack.ServerTraits.Transform:FireServer("g")
+                wait()
+                lplr.Backpack.ServerTraits.Transform:FireServer("h")
+                wait()
+                lplr.Backpack.ServerTraits.Transform:FireServer("g")
+            end
+        end
+    end
+)
+coroutine.resume(GoGod)
+
+while true do
+    for i, v in pairs(lplr.Backpack:GetChildren()) do
+        if
+            v.Name == Move1 or v.Name == Move2 or v.Name == Move3 or v.Name == Move4 or v.Name == Move5 or v.Name == Move6 or v.Name == Move7 or v.Name == Move8 or v.Name == Move9 or v.Name == Move10
+                then
+                    v.Parent = lplr.Character
+                    v:Activate()
+                    v:Deactivate()
+                    wait(.2)
+                    v.Parent = lplr.Backpack
+                lplr.Backpack.ServerTraits.EatSenzu:FireServer("")
+                
+                if game.Workspace.Live["Goku"].Humanoid.Health < .1 then
+                    game:GetService("TeleportService"):Teleport(3552157537, LocalPlayer)
+                end
+            end
+        end
+    end
